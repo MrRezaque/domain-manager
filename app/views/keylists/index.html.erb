@@ -1,0 +1,40 @@
+<p id="notice"><%= notice %></p>
+
+<%= link_to 'Запрещенные ресурсы>>', forbidden_resources_path %>
+
+<h1>Список ключевых слов:</h1>
+
+<table>
+  <thead>
+    <tr>
+      <th>Keywords</th>
+      <th>Active</th>
+      <th>Текущий активный домен: </th>
+      <th>Ресурсов в очереди: </th>
+      <th colspan="4"></th>
+
+    </tr>
+  </thead>
+
+  <tbody>
+    <% @keylists.each do |keylist| %>
+      <tr>
+        <td><%= keylist.keywords %></td>
+        <td><%= keylist.active %></td>
+        <td><%= current_keylist_message(keylist) %></td>
+        <td><%= resource_in_queue_cnt(keylist) %></td>
+        <td><%= link_to 'Show', keylist %></td>
+        <td><%= link_to 'Редактировать список доменов', keylist_resources_path(keylist) %></td>
+        <td><%= link_to 'Edit', edit_keylist_path(keylist) %></td>
+        <td><%= link_to 'Destroy', keylist, method: :delete, data: { confirm: 'Are you sure?' } %></td>
+      </tr>
+    <% end %>
+  </tbody>
+</table>
+
+<br>
+
+<%= link_to 'Добавить список ключевых слов', new_keylist_path %>
+
+<br><br><br>
+<%= link_to 'Генерировать скрипт сейчас -> ', generate_generate_path %>

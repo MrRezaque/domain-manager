@@ -1,0 +1,39 @@
+# Read about fixtures at http://api.rubyonrails.org/classes/ActiveRecord/FixtureSet.html
+
+#one:
+#  name: MyString
+#  keywords: MyText
+#  status: MyString
+#  active_from: MyString
+#  banned_at: MyString
+#
+#two:
+#  name: MyString1
+#  keywords: MyText1
+#  status: MyString1
+#  active_from: MyString1
+#  banned_at: MyString1
+
+active_one:
+  name: http://google.com/148
+  keywords: MyText124124213124
+  status: pending
+
+
+
+
+<% 2.times do |n| %>
+active_<%= n %>:
+  name: http://google.com/<%= n %>
+  keywords: MyText_<%= n %>
+  status: active
+
+<% end %>
+
+<% 1.times do |n| %>
+active_<%= n+2 %>:
+  name: http://yandex.ru/<%= n+2 %>
+  keywords: MyText_<%= n %>
+  status: active
+<% end %>
+

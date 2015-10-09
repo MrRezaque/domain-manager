@@ -1,0 +1,16 @@
+<p id="notice"><%= notice %></p>
+
+<p>
+  <strong>Keywords:</strong>
+  <%= @keylist.keywords %>
+</p>
+
+<p>
+  <strong>Active:</strong>
+  <%= @keylist.active %>
+</p>
+
+<%= link_to 'Редактировать ресурсы ->', keylist_resources_path(@keylist) %><br><br>
+
+<%= link_to 'Edit', edit_keylist_path(@keylist) %> |
+<%= link_to 'Back', keylists_path %>

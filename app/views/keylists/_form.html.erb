@@ -1,0 +1,27 @@
+<%= form_for(@keylist) do |f| %>
+  <% if @keylist.errors.any? %>
+    <div id="error_explanation">
+      <h2><%= pluralize(@keylist.errors.count, "error") %> prohibited this keylist from being saved:</h2>
+
+      <ul>
+      <% @keylist.errors.full_messages.each do |message| %>
+        <li><%= message %></li>
+      <% end %>
+      </ul>
+    </div>
+  <% end %>
+
+  <div class="field">
+    <%= f.label :keywords %><br>
+    <%= f.text_area :keywords %>
+  </div>
+  <div class="field">
+    <%= f.label :active %><br>
+    <%= f.check_box :active %>
+  </div>
+    <!--    he -->
+
+  <div class="actions">
+    <%= f.submit %>
+  </div>
+<% end %>

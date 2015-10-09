@@ -1,0 +1,25 @@
+<p id="notice"><%= notice %></p>
+
+<p>
+  <strong>Name:</strong>
+  <%= @resource.name %>
+</p>
+
+
+<p>
+  <strong>Status:</strong>
+  <%= @resource.status %>
+</p>
+
+<p>
+  <strong>Active from:</strong>
+  <%= @resource.active_from %>
+</p>
+
+<p>
+  <strong>Banned at:</strong>
+  <%= @resource.banned_at %>
+</p>
+
+<%= link_to 'Edit', edit_keylist_resource_path(@keylist,@resource) %> |
+<%= link_to 'Back', keylist_resources_path(@keylist,@resource) %>

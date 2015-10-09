@@ -1,0 +1,105 @@
+<p id="notice"><%= notice %></p>
+
+<h1>Список ресурсов для ключевых слов: </h1>
+
+<h2><%= @keylist.keywords %></h2>
+
+<%= link_to '<-- Назад к ключевым словам', keylists_path %>
+
+<h1>Активные:</h1>
+<table>
+  <thead>
+    <tr>
+      <th>Name</th>
+
+
+      <th>Active from</th>
+      <th>Banned at</th>
+      <th colspan="3"></th>
+    </tr>
+  </thead>
+
+  <tbody>
+    <% @active_resources.each do |resource| %>
+      <tr>
+        <td><%= resource.name %></td>
+
+
+        <td><%= resource.active_from %></td>
+        <td><%= resource.banned_at %></td>
+        <td><%= link_to 'Show', keylist_resource_path(@keylist ,resource) %></td>
+        <td><%= link_to 'Edit', edit_keylist_resource_path(@keylist ,resource) %></td>
+        <td><%= link_to 'Destroy', keylist_resource_path(@keylist ,resource), method: :delete, data: { confirm: 'Are you sure?' } %></td>
+      </tr>
+    <% end %>
+  </tbody>
+</table>
+
+<br>
+
+
+<h1>В очереди</h1>
+
+<table>
+  <thead>
+  <tr>
+    <th>Name</th>
+
+
+    <th>Active from</th>
+    <th>Banned at</th>
+    <th colspan="3"></th>
+  </tr>
+  </thead>
+
+  <tbody>
+  <% @pending_resources.each do |resource| %>
+      <tr>
+        <td><%= resource.name %></td>
+
+
+        <td><%= resource.active_from %></td>
+        <td><%= resource.banned_at %></td>
+        <td><%= link_to 'Show', keylist_resource_path(@keylist ,resource) %></td>
+        <td><%= link_to 'Edit', edit_keylist_resource_path(@keylist ,resource) %></td>
+        <td><%= link_to 'Destroy', keylist_resource_path(@keylist ,resource), method: :delete, data: { confirm: 'Are you sure?' } %></td>
+      </tr>
+  <% end %>
+  </tbody>
+</table>
+
+
+<%= link_to 'Добавить новый ресурс', new_keylist_resource_path %><br> <br><br>
+
+
+<h1>Забаненные</h1>
+
+<table>
+  <thead>
+  <tr>
+    <th>Name</th>
+
+
+    <th>Active from</th>
+    <th>Banned at</th>
+    <th colspan="3"></th>
+  </tr>
+  </thead>
+
+  <tbody>
+  <% @banned_resources.each do |resource| %>
+      <tr>
+        <td><%= resource.name %></td>
+
+        <td><%= resource.active_from %></td>
+        <td><%= resource.banned_at %></td>
+        <td><%= link_to 'Show', keylist_resource_path(@keylist ,resource) %></td>
+        <td><%= link_to 'Edit', edit_keylist_resource_path(@keylist ,resource) %></td>
+        <td><%= link_to 'Destroy', keylist_resource_path(@keylist ,resource), method: :delete, data: { confirm: 'Are you sure?' } %></td>
+      </tr>
+  <% end %>
+  </tbody>
+
+</table>
+<br><br>
+

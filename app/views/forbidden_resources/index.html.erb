@@ -1,0 +1,29 @@
+<p id="notice"><%= notice %></p>
+
+<%= link_to '<<Ресурсы', keylists_path %>
+
+<h1>Listing Forbidden Resources</h1>
+
+<table>
+  <thead>
+    <tr>
+      <th>Name</th>
+      <th colspan="3"></th>
+    </tr>
+  </thead>
+
+  <tbody>
+    <% @forbidden_resources.each do |forbidden_resource| %>
+      <tr>
+        <td><%= forbidden_resource.name %></td>
+        <td><%= link_to 'Show', forbidden_resource %></td>
+        <td><%= link_to 'Edit', edit_forbidden_resource_path(forbidden_resource) %></td>
+        <td><%= link_to 'Destroy', forbidden_resource, method: :delete, data: { confirm: 'Are you sure?' } %></td>
+      </tr>
+    <% end %>
+  </tbody>
+</table>
+
+<br>
+
+<%= link_to 'New Forbidden resource', new_forbidden_resource_path %>
